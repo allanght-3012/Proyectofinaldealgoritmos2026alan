@@ -1,0 +1,33 @@
+@startuml
+title Diagrama de casos de uso - Sistema de Inventario y Ventas (Librería)
+left to right direction
+skinparam shadowing false
+actor "Vendedor" as V
+
+rectangle "Sistema de Inventario - Librería" {
+  usecase "Agregar producto" as UC1
+  usecase "Buscar producto\n(por código o nombre parcial)" as UC2
+  usecase "Registrar venta" as UC3
+  usecase "Consultar inventario\n(ordenado por criterio)" as UC4
+  usecase "Generar reporte de ventas del día" as UC5
+  usecase "Eliminar producto" as UC6
+  usecase "Cambiar regla de descuento" as UC7
+  usecase "Guardar cambios y salir" as UC8
+  usecase "Validar código de producto" as UCV
+  usecase "Validar stock disponible" as UCS
+  usecase "Aplicar descuento por volumen" as UCD
+}
+
+V --> UC1
+V --> UC2
+V --> UC3
+V --> UC4
+V --> UC5
+V --> UC6
+V --> UC7
+V --> UC8
+
+UC1 ..> UCV : <<include>>
+UC3 ..> UCS : <<include>>
+UCD ..> UC3 : <<extend>>
+@enduml

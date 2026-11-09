@@ -1,0 +1,140 @@
+=== Prueba 3: errores manejados con excepciones personalizadas ===
+Comando: python main.py
+
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: lib-007
+Producto: Atlas geografico mundial | Precio: $35.00 | Stock: 8
+Cantidad: 50
+Error: Stock insuficiente: solo hay 8 unidades de Atlas geografico mundial.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: xxx-1
+Error: Producto 'XXX-1' no encontrado.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 2
+Código o parte del nombre: zzz
+Códigos disponibles: LIB-001, LIB-002, LIB-003, LIB-004, LIB-005, LIB-006, LIB-007, LIB-008, LIB-009, LIB-010, LIB-011, LIB-012
+Error: Producto 'zzz' no encontrado.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 1
+Categorías existentes: clasico, infantil, novela, papeleria, referencia, tecnologia
+Código (formato LLL-DDD): lib1
+Nombre: Cuaderno
+Categoría: papeleria
+Precio: 2.5
+Stock inicial: 10
+Error: Código 'LIB1' inválido: use el formato LLL-DDD (ej. LIB-013).
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 1
+Categorías existentes: clasico, infantil, novela, papeleria, referencia, tecnologia
+Código (formato LLL-DDD): LIB-001
+Nombre: Otro libro
+Categoría: novela
+Precio: 10
+Stock inicial: 5
+Error: El código LIB-001 ya existe.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 1
+Categorías existentes: clasico, infantil, novela, papeleria, referencia, tecnologia
+Código (formato LLL-DDD): LIB-020
+Nombre: Lapicero
+Categoría: papeleria
+Precio: -5
+Stock inicial: 10
+Error: El precio no puede ser negativo.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: lib-004
+Producto: Cuaderno universitario 100 hojas | Precio: $3.75 | Stock: 120
+Cantidad: abc
+Error: Entrada inválida: escriba un número entero.
+Cantidad: 2
+Venta registrada: 2 x Cuaderno universitario 100 hojas (descuento 0%) -> Total: $7.50
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 9
+Error: Opción no válida.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 8
+Cambios guardados. ¡Hasta pronto!

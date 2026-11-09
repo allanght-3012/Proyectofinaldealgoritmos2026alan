@@ -1,0 +1,230 @@
+@startuml
+title Diagrama de clases - Sistema de Inventario y Ventas (Librería)
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+hide empty members
+
+package "Excepciones" {
+  class InventarioError {
+  }
+  class CodigoInvalidoError {
+    +codigo: str
+    --
+    +__init__(codigo: str)
+  }
+  class DatoInvalidoError {
+  }
+  class ProductoDuplicadoError {
+    +codigo: str
+    --
+    +__init__(codigo: str)
+  }
+  class ProductoNoEncontradoError {
+    +codigo: str
+    --
+    +__init__(codigo: str)
+  }
+  class StockInsuficienteError {
+    +disponible: int
+    --
+    +__init__(nombre: str, disponible: int)
+  }
+  class ArchivoDatosError {
+  }
+}
+
+package "Modelo" {
+  class Producto {
+    {static} +LONGITUD_CODIGO: int
+    #_codigo: str
+    #_nombre: str
+    #_categoria: str
+    #_precio: float
+    #_stock: int
+    --
+    +__init__(codigo: str, nombre: str, categoria: str, precio: float, stock: int)
+    {static} +normalizar_texto(texto: str): str
+    {static} +normalizar_codigo(codigo: str): str
+    {static} +validar_codigo(codigo: str): bool
+    {static} +desde_fila_csv(fila: dict[str, str]): Producto
+    +codigo(): str <<property>>
+    +nombre(): str <<property>>
+    +categoria(): str <<property>>
+    +precio(): float <<property>>
+    +stock(): int <<property>>
+    +calcular_subtotal(cantidad: int): float
+    +descontar_stock(cantidad: int): None
+    +a_fila_csv(): list[str]
+    +__str__(): str
+    +__repr__(): str
+  }
+  class Venta {
+    +fecha: str
+    +producto: Producto
+    +cantidad: int
+    +descuento: float
+    +total: float
+    --
+    +codigo_producto(): str <<property>>
+    {static} +nueva(producto: Producto, cantidad: int, descuento: float, total: float): Venta
+    {static} +desde_fila_csv(fila: list[str], producto: Producto): Venta
+    +a_fila_csv(): list[str]
+    +__str__(): str
+    +__repr__(): str
+  }
+}
+
+package "Reglas de negocio" {
+  abstract class ReglaNegocio {
+    #_nombre: str
+    --
+    +__init__(nombre: str)
+    +nombre(): str <<property>>
+    {abstract} +porcentaje_descuento(cantidad: int): float
+    +aplicar(subtotal: float, cantidad: int): tuple[float, float]
+    +__str__(): str
+  }
+  class SinDescuento {
+    +__init__()
+    +porcentaje_descuento(cantidad: int): float
+  }
+  class DescuentoPorVolumen {
+    {static} +UMBRALES_POR_DEFECTO: tuple
+    #_umbrales: tuple
+    --
+    +__init__(umbrales: tuple | None)
+    +porcentaje_descuento(cantidad: int): float
+  }
+}
+
+package "Colección" {
+  class Inventario {
+    {static} +CRITERIOS_ORDEN: tuple
+    #_productos: dict[str, Producto]
+    --
+    +__init__()
+    +agregar(producto: Producto): None
+    +eliminar(codigo: str): Producto
+    +obtener(codigo: str): Producto
+    +buscar(texto: str): list[Producto]
+    +ordenar(criterio: str): list[Producto]
+    +categorias(): set[str]
+    +vender(codigo: str, cantidad: int, regla: ReglaNegocio): Venta
+    +__len__(): int
+    +__contains__(codigo: object): bool
+    +__iter__(): Iterator[Producto]
+  }
+}
+
+package "Persistencia" {
+  class Bitacora {
+    #_ruta: Path
+    --
+    +__init__(ruta: Path)
+    +registrar(mensaje: str): bool
+  }
+  class RepositorioCSV {
+    {static} +ENCABEZADOS_INVENTARIO: tuple
+    {static} +ENCABEZADOS_VENTAS: tuple
+    #_ruta_inventario: Path
+    #_ruta_ventas: Path
+    #_bitacora: Bitacora
+    #_avisos: list[str]
+    --
+    +__init__(ruta_inventario: Path, ruta_ventas: Path, bitacora: Bitacora)
+    +avisos(): list[str] <<property>>
+    {static} #_detectar_delimitador(archivo: ): str
+    #_crear_archivo(ruta: Path, encabezados: tuple): None
+    +cargar_inventario(): Inventario
+    +guardar_inventario(inventario: Inventario): None
+    +cargar_ventas(inventario: Inventario): list[Venta]
+    +guardar_venta(venta: Venta): None
+  }
+}
+
+package "Reportes" {
+  class ReporteInventario {
+    {static} +ANCHO_LINEA: int
+    --
+    +generar(productos: Iterable[Producto]): str
+  }
+  class ReporteVentas {
+    {static} +ANCHO_LINEA: int
+    --
+    +generar(ventas: Iterable[Venta], fecha: str | None): str
+  }
+}
+
+package "Interfaz" {
+  class Menu {
+    {static} +OPCIONES: tuple
+    --
+    +mostrar_opciones(): None
+    +pedir_texto(mensaje: str): str
+    +pedir_entero(mensaje: str): int
+    +pedir_decimal(mensaje: str): float
+    +mostrar(mensaje: str): None
+    +mostrar_error(mensaje: str): None
+  }
+  class SistemaInventario {
+    {static} +CRITERIOS: dict
+    #_menu: Menu
+    #_bitacora: Bitacora
+    #_repositorio: RepositorioCSV
+    #_inventario: Inventario
+    #_ventas: list[Venta]
+    #_regla_volumen: ReglaNegocio
+    #_regla_sin_descuento: ReglaNegocio
+    #_regla: ReglaNegocio
+    #_activo: bool
+    #_acciones: dict
+    --
+    +__init__(ruta_inventario: str, ruta_ventas: str | None, ruta_bitacora: str | None)
+    +ejecutar(): None
+    #_agregar_producto(): None
+    #_buscar_producto(): None
+    #_registrar_venta(): None
+    #_mostrar_inventario(): None
+    #_reporte_ventas(): None
+    #_eliminar_producto(): None
+    #_cambiar_regla(): None
+    #_salir(): None
+  }
+}
+
+InventarioError <|-- CodigoInvalidoError
+InventarioError <|-- DatoInvalidoError
+InventarioError <|-- ProductoDuplicadoError
+InventarioError <|-- ProductoNoEncontradoError
+InventarioError <|-- StockInsuficienteError
+InventarioError <|-- ArchivoDatosError
+ReglaNegocio <|-- SinDescuento
+ReglaNegocio <|-- DescuentoPorVolumen
+
+Inventario "1" *-- "0..*" Producto : contiene
+SistemaInventario "1" *-- "1" Menu
+SistemaInventario "1" *-- "1" Inventario
+SistemaInventario "1" *-- "1" RepositorioCSV
+SistemaInventario "1" *-- "1" Bitacora
+SistemaInventario "1" *-- "0..*" Venta : registra
+SistemaInventario "1" o-- "2" ReglaNegocio : reglas disponibles
+RepositorioCSV "1" o-- "1" Bitacora : anota en
+Venta "0..*" --> "1" Producto : referencia
+Inventario ..> Venta : crea
+Inventario ..> ReglaNegocio : aplica
+RepositorioCSV ..> Inventario : carga/guarda
+RepositorioCSV ..> Producto : lee/escribe
+RepositorioCSV ..> Venta : lee/escribe
+ReporteInventario ..> Producto : formatea
+ReporteVentas ..> Venta : formatea
+SistemaInventario ..> ReporteInventario : usa
+SistemaInventario ..> ReporteVentas : usa
+Producto ..> CodigoInvalidoError : lanza
+Producto ..> DatoInvalidoError : lanza
+Producto ..> StockInsuficienteError : lanza
+Inventario ..> ProductoNoEncontradoError : lanza
+Inventario ..> ProductoDuplicadoError : lanza
+RepositorioCSV ..> ArchivoDatosError : lanza
+SistemaInventario ..> InventarioError : captura
+@enduml

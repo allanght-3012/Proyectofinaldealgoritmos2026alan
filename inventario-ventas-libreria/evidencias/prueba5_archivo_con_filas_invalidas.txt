@@ -1,0 +1,35 @@
+=== Prueba 5: CSV con formato de Excel (;) y filas inválidas que se omiten con aviso ===
+Comando: python main.py
+
+AVISO: Fila 3 omitida: Código '1001' inválido: use el formato LLL-DDD (ej. LIB-013).
+AVISO: Fila 4 omitida: El precio no puede ser negativo.
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 4
+Ordenar por: 1) Nombre  2) Precio  3) Stock  4) Categoría
+Opción: 1
+Código    Nombre                              Categoría        Precio  Stock
+----------------------------------------------------------------------------
+LIB-001   Cien años de soledad                novela            18.50     25
+LIB-003   Don quijote                         clasico           22.00     15
+Categorías: clasico, novela
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 8
+Cambios guardados. ¡Hasta pronto!

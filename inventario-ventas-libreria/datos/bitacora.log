@@ -1,0 +1,21 @@
+[2026-11-07 23:04:22] Inventario cargado: 12 productos
+[2026-11-07 23:04:22] Archivo nuevo creado: ventas.csv
+[2026-11-07 23:04:22] Programa iniciado
+[2026-11-07 23:05:20] Inventario cargado: 12 productos
+[2026-11-07 23:05:20] Programa iniciado
+[2026-11-07 23:33:41] Inventario guardado: 12 productos
+[2026-11-07 23:33:41] VENTA LIB-005 x5 desc=5% total=19.95
+[2026-11-07 23:35:19] Inventario guardado: 13 productos
+[2026-11-07 23:35:19] ALTA producto LIB-000 - Manzana
+[2026-11-07 23:35:33] Regla de descuento cambiada a: Sin descuento
+[2026-11-07 23:35:43] Regla de descuento cambiada a: Descuento por volumen
+[2026-11-07 23:36:17] Inventario guardado: 12 productos
+[2026-11-07 23:36:17] BAJA producto LIB-000 - Manzana
+[2026-11-08 08:44:46] Inventario cargado: 12 productos
+[2026-11-08 08:44:46] Programa iniciado
+[2026-11-08 10:29:41] Inventario cargado: 12 productos
+[2026-11-08 10:29:41] Programa iniciado
+[2026-11-08 10:30:17] Inventario guardado: 13 productos
+[2026-11-08 10:30:17] ALTA producto LLL-000 - Pencil
+[2026-11-08 10:32:07] Inventario guardado: 13 productos
+[2026-11-08 10:32:07] VENTA LIB-003 x1 desc=0% total=22.00

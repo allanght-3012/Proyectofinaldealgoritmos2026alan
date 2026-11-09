@@ -1,0 +1,14 @@
+codigo,nombre,categoria,precio,stock
+LIB-001,Cien años de soledad,novela,18.50,25
+LIB-002,El principito,infantil,9.99,40
+LIB-003,Don quijote de la mancha,clasico,22.00,14
+LIB-004,Cuaderno universitario 100 hojas,papeleria,3.75,120
+LIB-005,Lapiz hb caja x12,papeleria,4.20,75
+LIB-006,Bolígrafo azul,papeleria,0.65,300
+LIB-007,Atlas geografico mundial,referencia,35.00,8
+LIB-008,Diccionario español ilustrado,referencia,27.90,12
+LIB-009,Harry potter y la piedra filosofal,novela,19.99,30
+LIB-010,Marcadores fluorescentes x6,papeleria,5.50,60
+LIB-011,Cuentos de los hermanos grimm,infantil,12.00,22
+LIB-012,Python para principiantes,tecnologia,29.90,10
+LLL-000,Pencil,infantil,15.00,35

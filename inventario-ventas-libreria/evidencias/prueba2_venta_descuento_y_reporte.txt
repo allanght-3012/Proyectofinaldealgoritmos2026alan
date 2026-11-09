@@ -1,0 +1,124 @@
+=== Prueba 2: venta con descuento por volumen (polimorfismo de la regla) y reporte del día ===
+Comando: python main.py
+
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: lib-004
+Producto: Cuaderno universitario 100 hojas | Precio: $3.75 | Stock: 120
+Cantidad: 12
+Venta registrada: 12 x Cuaderno universitario 100 hojas (descuento 10%) -> Total: $40.50
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: lib-009
+Producto: Harry potter y la piedra filosofal | Precio: $19.99 | Stock: 30
+Cantidad: 5
+Venta registrada: 5 x Harry potter y la piedra filosofal (descuento 5%) -> Total: $94.95
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: lib-002
+Producto: El principito | Precio: $9.99 | Stock: 40
+Cantidad: 2
+Venta registrada: 2 x El principito (descuento 0%) -> Total: $19.98
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 7
+Regla activa: Sin descuento
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 3
+Código del producto: lib-004
+Producto: Cuaderno universitario 100 hojas | Precio: $3.75 | Stock: 108
+Cantidad: 12
+Venta registrada: 12 x Cuaderno universitario 100 hojas (descuento 0%) -> Total: $45.00
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 5
+REPORTE DE VENTAS - 2026-11-04
+----------------------------------------------------------------------------
+Código    Producto                           Cant.   Desc.             Total
+----------------------------------------------------------------------------
+LIB-004   Cuaderno universitario 100 hojas      12     10%             40.50
+LIB-009   Harry potter y la piedra filosof       5      5%             94.95
+LIB-002   El principito                          2      0%             19.98
+LIB-004   Cuaderno universitario 100 hojas      12      0%             45.00
+----------------------------------------------------------------------------
+TOTAL DEL DÍA                                                         200.43
+
+=== LIBRERÍA - INVENTARIO Y VENTAS (POO) ===
+1) Agregar producto
+2) Buscar producto
+3) Registrar venta
+4) Mostrar inventario
+5) Reporte de ventas del día
+6) Eliminar producto
+7) Cambiar regla de descuento
+8) Salir
+Elija una opción: 8
+Cambios guardados. ¡Hasta pronto!
+
+--- Contenido de datos/bitacora.log ---
+[2026-11-04 00:14:37] Inventario cargado: 12 productos
+[2026-11-04 00:14:37] Archivo nuevo creado: ventas.csv
+[2026-11-04 00:14:37] Programa iniciado
+[2026-11-04 00:14:37] Inventario guardado: 12 productos
+[2026-11-04 00:14:37] VENTA LIB-004 x12 desc=10% total=40.50
+[2026-11-04 00:14:37] Inventario guardado: 12 productos
+[2026-11-04 00:14:37] VENTA LIB-009 x5 desc=5% total=94.95
+[2026-11-04 00:14:37] Inventario guardado: 12 productos
+[2026-11-04 00:14:37] VENTA LIB-002 x2 desc=0% total=19.98
+[2026-11-04 00:14:37] Regla de descuento cambiada a: Sin descuento
+[2026-11-04 00:14:37] Inventario guardado: 12 productos
+[2026-11-04 00:14:37] VENTA LIB-004 x12 desc=0% total=45.00
+[2026-11-04 00:14:37] Inventario guardado: 12 productos
+[2026-11-04 00:14:37] Programa finalizado
